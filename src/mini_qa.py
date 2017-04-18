@@ -26,9 +26,10 @@ class MiniQA:
         # print(q_tokens)
         question = question.replace("?", "")
         good_q = [i for i in question.lower().split() if i not in self.stop_words_list]
-        download_data.fetch(good_q)
+        print(good_q)
+        download_data.fetch(' '.join(good_q))
         # print(good_q)
-        vsm.search(question)
+        # vsm.search(question)
 
 
 start_time = time.time()
