@@ -9,17 +9,19 @@ path = path.replace("/src",  "/corpora/")
 
 def fetch(query):                                                    # download data from wikiMedia
     # query = input("Enter search terms :")
+    os.chdir(path)
+    # print("Query is", query)
     result_set = wikipedia.search(query)
+    # print("Result set", result_set)
+    files = [f for f in os.listdir(".") if f.endswith(".txt")]
+    for f in files:
+        os.remove(f)
     for term in range(len(result_set)):
             page = wikipedia.page(result_set[term])
             page_title = page.title
             page_title = page_title.replace(" ", "_")
-            page_content = page.content
+            page_content = page.summary
             try:
-                os.chdir(path)
-                files = [f for f in os.listdir(".") if f.endswith(".txt")]
-                for f in files:
-                    os.remove(f)
                 name = page_title+"."+"txt"
                 file = open(name, 'a')
                 file.write(page_content)

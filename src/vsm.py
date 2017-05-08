@@ -19,6 +19,7 @@ __author__ = 'Amit_g'
 class VectorSpaceModel:
 
     def __init__(self):
+        self.ans_bank = []
         self.doc_fnames = {}
         self.N = -1  # corpus size
         self.dictionary = set()  # to contain all terms (i.e, words)
@@ -112,9 +113,11 @@ class VectorSpaceModel:
         bound = int(len(scores) * 0.5)
         if bound > 1:
             top_results = scores[0:bound]
-            print("Score: filename")
+            print("Score:\t filename")
             for (id, score) in top_results:
                 print(str(score) + "  : \t" + self.doc_fnames[id].split("/")[-1])
+                self.ans_bank.append(self.doc_fnames[id].split("/")[-1])
+            # print(self.ans_bank)
         else:
             print('There are no documents to search for !\n')
 
@@ -133,7 +136,7 @@ class VectorSpaceModel:
             return
 
     def test_vsm(self):
-        print('Searching vector space...')
+        print('\nRanked List of Text Documents.')
         path = os.path.dirname(os.path.realpath(__file__))
         path = path.replace("/src", "/corpora/")
         self.initialize_docs(path=path)

@@ -1,0 +1,3 @@
+Business relationship management (BRM) is a formal approach to understanding, defining, and supporting inter-business activities related to business networking.
+Business relationship management consists of knowledge, skills, and behaviors (or competencies) that foster a productive relationship between a service organization (e.g. Human Resources, Information technology, a finance department, or an external provider) and their business partners.
+BRM is distinct from enterprise relationship management and customer relationship management although it is related. It is of larger scope than a liaison who aligns business interests with IT deliverables.

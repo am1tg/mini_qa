@@ -6,7 +6,8 @@ train = [
     ('where', 'location'),
     ('what', 'entity'),
     ('how many', 'count'),
-    ("how", 'reason')
+    ("how", 'reason'),
+    ('when was', 'time')
 ]
 
 

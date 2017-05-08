@@ -18,19 +18,23 @@ class MiniQA:
     stop_words_list = set(stopwords.words('english'))
 
     def ask(self):
+
         question = input("Q. ").strip()
-        question = question.lower()
+        # question = question.lower()
+
         ans_typ = train_ans_type.ans_type(question)
         print('Answer type : ', ans_typ)
+
         q_tokens = nltk.word_tokenize(question)
         # print(q_tokens)
-        question = question.replace("?", "")
-        good_q = [i for i in question.lower().split() if i not in self.stop_words_list]
-        print(good_q)
-        download_data.fetch(' '.join(good_q))
-        # print(good_q)
-        # vsm.search(question)
 
+        question = question.replace("?", "")
+        search_terms = [i for i in question.lower().split() if i not in self.stop_words_list]
+
+        # download_data.fetch(' '.join(search_terms))
+        # print(search_terms)
+
+        vsm.search(question)
 
 start_time = time.time()
 m = MiniQA()
@@ -50,8 +54,8 @@ print('Total ', (end_time-start_time), " seconds.")
 # mean = TextBlob(q).sentiment
 # print(mean)
 q = q.replace("?", "")
-good_q = [i for i in q.lower().split() if i not in self.stop_words_list]
-print(good_q)
+search_terms = [i for i in q.lower().split() if i not in self.stop_words_list]
+print(search_terms)
 
 ans = wikipedia.search()
 print(ans)
